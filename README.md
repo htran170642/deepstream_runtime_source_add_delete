@@ -43,19 +43,29 @@ https://developer.nvidia.com/blog/managing-video-streams-in-runtime-with-the-dee
 https://ostechnix.com/setup-mysql-with-docker-in-linux/
 bash
 ### Pull the mysql image
-docker pull mysql:5.7
+```
+$ docker pull mysql:5.7
+```
 
 ### Run the mysql container
-docker run --name mysql -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_DATABASE=mydb -e MYSQL_USER=test -e MYSQL_PASSWORD=123456 -p 3306:3306 -d mysql:5.7
+```
+$ docker run --name mysql -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_DATABASE=mydb -e MYSQL_USER=test -e MYSQL_PASSWORD=123456 -p 3306:3306 -d mysql:5.7
+```
 
 ### Connect to the mysql container
-docker exec -it mysql bash
+```
+$ docker exec -it mysql bash
+```
 
 ### Inside the container, connect to mysql using the root password
-mysql -u root -p
+```
+$ mysql -u root -p
+```
 
 ### Create a new database
 use script.sql example file
 
 ### issue when start mysql docker
-sudo service mysql stop
+```
+$ sudo service mysql stop
+```
