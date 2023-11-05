@@ -28,15 +28,14 @@ The application demonstrates following pipeline for single source <uri>
 
 uridecodebin -> nvstreammux -> nvinfer -> nvtracker -> nvtiler -> nvvideoconvert -> nvdsosd -> displaysink
 
-- At runtime after a timeout a source will be added periodically. All the components
-  are reconfigured during addition/deletion
-- After reaching of `MAX_NUM_SOURCES`, each source is deleted periodically till single
-  source is present in the pipeline
+- At runtime after a timeout new cameras or removed cameras are querried from database periodically. 
+  All the components are reconfigured during addition/deletion
+- After reaching of `MAX_NUM_SOURCES`, if new sources are detected, the pipeline does nothing and keeps running
 - The app exits, when final source End of Stream is reached or if the last source is deleted.
 - filesink and nv3dsink (only Jetson) are also supported.
-
-## Blog:
-https://developer.nvidia.com/blog/managing-video-streams-in-runtime-with-the-deepstream-sdk/
+- If run with `run forever` argument as '1' then it will keep running infinitely until killed manually.
+- Ideas from this [blog](https://developer.nvidia.com/blog/managing-video-streams-in-runtime-with-the-deepstream-sdk/
+)
 
 
 ## Setup mysql with docker
